@@ -1,0 +1,134 @@
+\documentclass[9pt, landscape, a4paper,twosided]{extarticle}
+\usepackage{xcolor}
+
+\definecolor{CfCyan}{RGB}{3, 168, 158}
+\definecolor{CfGreen}{RGB}{0, 128, 10}
+
+\newcommand{\universityName}{Daffodil International University}
+\newcommand{\teamName}{DIU\_WA\_rriors}
+\newcommand{\firstMember}{\color{blue}\_Masum\_Billah}
+\newcommand{\secondMember}{\color{blue}piyash\_basak}
+\newcommand{\thirdMember}{\color{CfCyan}Hamza\_28}
+\newcommand{\contestName}{AUST IUPC 2025}
+\newcommand{\updateDate}{}
+
+\usepackage{minted}
+%\usemintedstyle{bw}
+\usepackage{sectsty}
+\usepackage{fouriernc}
+\usepackage[T1]{fontenc}
+\usepackage{framed}
+\usepackage{makeidx}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[scaled=0.9]{DejaVu Sans Mono}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{verbatim}
+\usepackage{hyperref}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{multicol}
+\usepackage{geometry}
+\usepackage{amssymb,tikz,psfrag,epstopdf}
+\geometry{verbose,landscape,a4paper,tmargin=1.25cm,bmargin=0cm,lmargin=0.75cm,rmargin=.25cm}
+
+\newcommand{\maketeampage}{
+	\pagestyle{empty}
+	\setcounter{page}{0}
+	\begin{center}
+		\strut % Magic
+		\vspace{-1cm}\\
+		\includegraphics[width=12cm]{logo}\\
+		\vspace{-2cm}
+		{\fontsize{24}{30} \fontfamily{lmss} \selectfont {\universityName}\\}
+		\vspace{2cm}
+		{\fontsize{60}{60} \fontfamily{lmss} \selectfont {\teamName}\\}
+		\vspace{1cm}
+		{\fontsize{24}{30} \fontfamily{lmss} \selectfont { {\firstMember}, {\secondMember}, {\thirdMember} }\\}
+		\vspace{2cm}
+		%{\fontsize{24}{30} \fontfamily{lmss} \selectfont {Team Reference Document for {\contestName}}}\\
+		{\fontsize{24}{30} \fontfamily{lmss} \selectfont {Team Reference Document}}\\
+		\vspace{1cm}
+		% {\fontsize{18}{24} \fontfamily{lmss} \selectfont {Updated: {\updateDate}}}\\
+		\vspace{1cm}
+	\end{center}
+	\clearpage
+	\pagestyle{fancy}
+}
+
+\newcommand{\printdescription}[1]{
+  \codeheader{Description}{#1}
+}
+\newcommand{\printusage}[1]{
+  \codeheader{Usage}{\texttt{#1}}
+}
+\newcommand{\printtime}[1]{
+  \codeheader{Time}{#1}
+}
+\newcommand{\printmemory}[1]{
+  \codeheader{Memory}{#1}
+}
+\newcommand{\codeheader}[2]{
+	{\par\noindent\normalsize{\textbf{#1:} #2\par}}
+}
+\newcommand{\bigo}[1] {\ensuremath{\mathcal{O} \left( #1 \right)}}
+
+\newenvironment{myitemize}
+{ \begin{itemize}[leftmargin=.5cm]
+    \setlength{\itemsep}{0pt}
+    \setlength{\parskip}{0pt}
+    \setlength{\parsep}{0pt}     }
+{ \end{itemize}                  }
+
+\setlength{\parindent}{0pt}
+\newcommand*{\Scale}[2][4]{\scalebox{#1}{$#2$}}%
+
+\setlength{\columnsep}{1.5mm}
+\setlength{\columnseprule}{1px}
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{2}
+
+\BeforeBeginEnvironment{minted}{\vspace{0mm}}
+\AfterEndEnvironment{minted}{\vspace{-1mm}}
+
+\linespread{0.30}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{1pt}
+% \renewcommand{\footrulewidth}{1pt}
+\renewcommand{\theFancyVerbLine}{\sffamily \textcolor[rgb]{0.15,0.15,0.15}{\small \arabic{FancyVerbLine}}}
+%\rfoot{\thepage}
+
+\lhead{\textcolor{MidnightBlue}{\textit{\textbf{\universityName}}} | \textcolor{MidnightBlue}{\textit{\textbf{\teamName}}}}
+\setlength\headheight{16pt}
+\rhead{\thepage}
+\headsep = 0pt
+% \textheight = 7.75in
+\textheight = 7.95in
+% \footskip = 16pt
+\footskip = 0mm
+
+\titlespacing*{\section}{0pt}{0}{0}
+\titlespacing*{\subsection}{0pt}{0}{0}
+\titlespacing*{\subsubsection}{0pt}{0}{0}
+
+\titleformat{\section}
+  {\normalfont\fontsize{10}{15}\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\fontsize{8}{15}\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\normalfont\fontsize{8}{15}\bfseries}{\thesubsubsection}{1em}{}
+\subsectionfont{\Huge}
+
+\begin{document}
+\maketeampage
+\begin{multicols*}{3}
+\tableofcontents
+\vspace{2mm}
+% \noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+\noindent\rule{9.7cm}{1pt}
+\vspace{2mm}
