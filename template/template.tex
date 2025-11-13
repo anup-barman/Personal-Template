@@ -5,11 +5,7 @@
 \definecolor{CfGreen}{RGB}{0, 128, 10}
 
 \newcommand{\universityName}{Daffodil International University}
-\newcommand{\teamName}{DIU\_WA\_rriors}
-\newcommand{\firstMember}{\color{blue}\_Masum\_Billah}
-\newcommand{\secondMember}{\color{blue}piyash\_basak}
-\newcommand{\thirdMember}{\color{CfCyan}Hamza\_28}
-\newcommand{\contestName}{AUST IUPC 2025}
+\newcommand{\teamName}{Anup\_Barman}
 \newcommand{\updateDate}{}
 
 \usepackage{minted}
@@ -35,27 +31,25 @@
 \geometry{verbose,landscape,a4paper,tmargin=1.25cm,bmargin=0cm,lmargin=0.75cm,rmargin=.25cm}
 
 \newcommand{\maketeampage}{
-	\pagestyle{empty}
-	\setcounter{page}{0}
-	\begin{center}
-		\strut % Magic
-		\vspace{-1cm}\\
-		\includegraphics[width=12cm]{logo}\\
-		\vspace{-2cm}
-		{\fontsize{24}{30} \fontfamily{lmss} \selectfont {\universityName}\\}
-		\vspace{2cm}
-		{\fontsize{60}{60} \fontfamily{lmss} \selectfont {\teamName}\\}
-		\vspace{1cm}
-		{\fontsize{24}{30} \fontfamily{lmss} \selectfont { {\firstMember}, {\secondMember}, {\thirdMember} }\\}
-		\vspace{2cm}
-		%{\fontsize{24}{30} \fontfamily{lmss} \selectfont {Team Reference Document for {\contestName}}}\\
-		{\fontsize{24}{30} \fontfamily{lmss} \selectfont {Team Reference Document}}\\
-		\vspace{1cm}
-		% {\fontsize{18}{24} \fontfamily{lmss} \selectfont {Updated: {\updateDate}}}\\
-		\vspace{1cm}
-	\end{center}
-	\clearpage
-	\pagestyle{fancy}
+    \pagestyle{empty}
+    \setcounter{page}{0}
+    
+    \begin{center}
+        \vspace*{2cm}
+        \includegraphics[width=7cm]{logo}
+        \vspace{2cm}
+        
+        {\fontsize{20}{24}\selectfont\textbf{\universityName}}
+        \vspace{3cm}
+        
+        {\fontsize{72}{80}\selectfont\bfseries\textcolor{CfCyan}{Anup Barman}}
+        \vspace{3cm}
+        
+        {\fontsize{13}{15}\selectfont\textcolor{black!70}{Personal Reference Document}}
+    \end{center}
+
+    \clearpage
+    \pagestyle{fancy}
 }
 
 \newcommand{\printdescription}[1]{
