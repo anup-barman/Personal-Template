@@ -96,6 +96,10 @@ def ordoescape(input, esc=True):
             return r"%s\bigo{%s}%s" % (input[:start], input[start+2:end], ordoescape(input[end+1:], False))
     return input
 
+def clean_folder_name(folder_name):
+    """Remove numerical prefix from folder name for display"""
+    return re.sub(r'^\d+\.\s*', '', folder_name)
+
 def processwithcomments(caption):
   code = ''
   instream = open(caption)
@@ -214,12 +218,20 @@ def gen(level):
   folders = [x for x in os.listdir(".") if os.path.isdir(x) and x != ".git"]
   files = [x for x in os.listdir(".") if os.path.isfile(x) and x != ".gitignore"]
   
-  folders.sort()
+  # Sort folders with numerical prefix support (e.g., "0. Setup", "1. Misc", "2. Graph")
+  def sort_key(name):
+    match = re.match(r'^(\d+)', name)
+    if match:
+      return (int(match.group(1)), name)
+    return (float('inf'), name)
+  
+  folders.sort(key=sort_key)
   files.sort()
 
   parent = os.getcwd()
   for folder in folders:
-    text = text + '\\' + section[level] + '{' + folder + '}\n'
+    display_name = clean_folder_name(folder)
+    text = text + '\\' + section[level] + '{' + display_name + '}\n'
     child = parent + "/" + folder
     os.chdir(child)
     gen(level + 1)
