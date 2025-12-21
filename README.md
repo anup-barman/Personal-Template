@@ -1,90 +1,76 @@
-### Required Packages
+# ACM-ICPC Notebook Generator
 
-This project requires Python, Pygments and a TeX distribution. Platform-specific installation notes follow.
+![Python](https://img.shields.io/badge/python-3.8%2B-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Status](https://img.shields.io/badge/status-active-success)
 
-- Python 3
-  - Debian/Ubuntu:
-    ```bash
-    sudo apt-get update
-    sudo apt-get install python3 python3-pip
-    ```
-  - Fedora:
-    ```bash
-    sudo dnf install python3 python3-pip
-    ```
-  - Arch Linux:
-    ```bash
-    sudo pacman -S python python-pip
-    ```
-  - macOS (Homebrew):
-    ```bash
-    brew install python
-    ```
-  - Windows:
-    - Use the official installer from python.org or Chocolatey:
-      ```powershell
-      choco install python
-      ```
-    - Using WSL is recommended for a Linux-like environment.
+A Python script to generate a PDF notebook for Competitive Programming (ACM-ICPC, IOI, etc.) from your source code. It features syntax highlighting, automatic index generation, and supports LaTeX customization.
 
-- pygments (syntax highlighter)
-  ```bash
-  pip3 install pygments
-  ```
-  On Windows use `pip install pygments` if `pip3` is not available.
+## Features
+- **Syntax Highlighting**: Uses `pygments` (via LaTeX `minted` package).
+- **Automatic Indexing**: Generates a Table of Contents based on your directory structure.
+- **Customizable**: Edit the LaTeX template to match your team's needs.
+- **Complexity Support**: Automatically format Time and Memory complexity from comments.
 
-- TeX distribution (for building PDFs)
-  - Debian/Ubuntu:
-    ```bash
-    sudo apt-get install texlive-full
-    ```
-  - Fedora:
-    ```bash
-    sudo dnf install texlive-scheme-full
-    ```
-    or install TeX Live via the official installer.
-  - Arch Linux:
-    ```bash
-    sudo pacman -S texlive-most
-    ```
-  - macOS:
-    - Install MacTeX (recommended):
-      ```bash
-      brew install --cask mactex
-      ```
-    - Or install BasicTeX / MacTeX from tug.org.
-  - Windows:
-    - Install MiKTeX (recommended) or TeX Live. With Chocolatey:
-      ```powershell
-      choco install miktex
-      ```
+## Prerequisites
 
-Notes:
-- Ensure `python`/`python3` and `pdflatex` are on your PATH after installation.
-- Installing the full TeX distribution can be large; install smaller schemes if disk space is limited.
+### Python
+- Python 3.8 or higher
+- `pip`
 
-### How To Use
+### LaTeX
+A full TeX distribution is required to compile the PDF.
+- **Ubuntu/Debian**: `sudo apt install texlive-full`
+- **macOS**: `brew install --cask mactex`
+- **Windows**: Install [MiKTeX](https://miktex.org/download) or [TeX Live](https://www.tug.org/texlive/).
 
-Put your code files in the `code` folder. You can create subfolders (e.g. Graph, String, Math) for different categories.
+## Installation
 
-Open a terminal and run:
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/Personal-Template.git
+   cd Personal-Template
+   ```
 
-- Linux / macOS / WSL:
-  ```bash
-  python3 main.py
-  ```
-- Windows (native):
-  ```powershell
-  python main.py
-  ```
+2. Install Python dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-### Customization
+## Usage
 
-To customize output edit `template/template.tex`.
+1. **Organize your code**: Place your source files in the `code/` directory. You can create subdirectories (e.g., `Graph`, `DP`) to organize them.
+   - Files are sorted alphabetically.
+   - Folders can be prefixed with numbers (e.g., `1. Graph`) to control order.
 
-- Change team information: edit lines ~3–9.
-- Change font size: edit line 1 or adjust `scaled=..` (around line 20) for flexible scaling.
+2. **Generate the Notebook**:
+   ```bash
+   python3 main.py
+   ```
+   The script will generate `notebook.pdf` in the root directory.
 
-### Attribution
+## Code formatting features
 
-This project was taken from hamza-28's GitHub: https://github.com/hamza-28
+Special comments in your code are parsed to add metadata to the notebook:
+
+```cpp
+/**
+ * Author: Your Name
+ * Date: 2023-11-15
+ * Description: Short description of the algorithm.
+ * Time: O(V+E)
+ * Status: Tested
+ */
+```
+
+## Customization
+
+- **Team Info**: Edit `template/template.tex` to change the team name and university.
+- **Formatting**: Adjust the `minted` options in `main.py` if you want to change syntax highlighting styles.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+- Based on [hamza-28's template](https://github.com/hamza-28).
