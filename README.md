@@ -1,90 +1,49 @@
+# CP-Arsenal Personal Template
+
+A script to generate a competitive programming personal template PDF from your code library.
+
 ### Required Packages
 
-This project requires Python, Pygments and a TeX distribution. Platform-specific installation notes follow.
+* python3
 
-- Python 3
-  - Debian/Ubuntu:
-    ```bash
-    sudo apt-get update
-    sudo apt-get install python3 python3-pip
-    ```
-  - Fedora:
-    ```bash
-    sudo dnf install python3 python3-pip
-    ```
-  - Arch Linux:
-    ```bash
-    sudo pacman -S python python-pip
-    ```
-  - macOS (Homebrew):
-    ```bash
-    brew install python
-    ```
-  - Windows:
-    - Use the official installer from python.org or Chocolatey:
-      ```powershell
-      choco install python
-      ```
-    - Using WSL is recommended for a Linux-like environment.
-
-- pygments (syntax highlighter)
   ```bash
+  sudo apt-get install python3
+  ```
+
+* pygments
+
+  ```bash
+  sudo apt-get install python3-pip
   pip3 install pygments
   ```
-  On Windows use `pip install pygments` if `pip3` is not available.
 
-- TeX distribution (for building PDFs)
-  - Debian/Ubuntu:
-    ```bash
-    sudo apt-get install texlive-full
-    ```
-  - Fedora:
-    ```bash
-    sudo dnf install texlive-scheme-full
-    ```
-    or install TeX Live via the official installer.
-  - Arch Linux:
-    ```bash
-    sudo pacman -S texlive-most
-    ```
-  - macOS:
-    - Install MacTeX (recommended):
-      ```bash
-      brew install --cask mactex
-      ```
-    - Or install BasicTeX / MacTeX from tug.org.
-  - Windows:
-    - Install MiKTeX (recommended) or TeX Live. With Chocolatey:
-      ```powershell
-      choco install miktex
-      ```
+* texlive-full
 
-Notes:
-- Ensure `python`/`python3` and `pdflatex` are on your PATH after installation.
-- Installing the full TeX distribution can be large; install smaller schemes if disk space is limited.
+  ```bash
+  sudo apt-get install texlive-full
+  ```
+
+### Directory Structure
+
+* **CodeLibrary/**: Put your `.cpp`, `.py`, `.java` codes here. You can organize them into subfolders (e.g., Graph, String, Math).
+* **Template/**: Contains the LaTeX template and assets.
+  * **Assets/**: Place your logos and icons here.
 
 ### How To Use
 
-Put your code files in the `code` folder. You can create subfolders (e.g. Graph, String, Math) for different categories.
-
 Open a terminal and run:
 
-- Linux / macOS / WSL:
-  ```bash
-  python3 main.py
-  ```
-- Windows (native):
-  ```powershell
-  python main.py
-  ```
+```bash
+python3 main.py
+```
+
+This will generate `notebook.pdf` in the root directory.
 
 ### Customization
 
-To customize output edit `template/template.tex`.
+To customize the template, edit the `Template/template.tex` file.
 
-- Change team information: edit lines ~3–9.
-- Change font size: edit line 1 or adjust `scaled=..` (around line 20) for flexible scaling.
-
-### Attribution
-
-This project was taken from hamza-28's GitHub: https://github.com/hamza-28
+* **Colors**: Change definitions of `CfCyan` or `CfGreen`.
+* **Personal Details**: Update `\Name` and `\templateTitle`.
+* **Icons**: Replace files in `Template/Assets/` (`codeforces-icon.jpg`, `atcoder-icon.png`, `codechef-icon.jpg`, `logo.pdf`).
+* **Font Size**: Edit line 1 or change `scaled=..` in line 20.

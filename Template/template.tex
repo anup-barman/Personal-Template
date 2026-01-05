@@ -1,0 +1,157 @@
+\documentclass[9pt, landscape, a4paper,twosided]{extarticle}
+\usepackage{xcolor}
+
+\definecolor{CfCyan}{RGB}{3, 168, 158}
+\definecolor{CfGreen}{RGB}{0, 128, 10}
+
+\newcommand{\universityName}{Daffodil International University}
+\newcommand{\Name}{\color{CfCyan}Anup Barman}
+\newcommand{\templateTitle}{CP-Arsenal}
+\newcommand{\updateDate}{\today}
+
+\usepackage{minted}
+%\usemintedstyle{bw}
+\usepackage{sectsty}
+\usepackage{fouriernc}
+\usepackage[T1]{fontenc}
+\usepackage{framed}
+\usepackage{makeidx}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[scaled=0.9]{DejaVu Sans Mono}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{verbatim}
+\usepackage{hyperref}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{multicol}
+\usepackage{geometry}
+\usepackage{amssymb,tikz,psfrag,epstopdf}
+\usepackage{graphicx}
+\geometry{verbose,landscape,a4paper,tmargin=1.25cm,bmargin=0cm,lmargin=0.75cm,rmargin=.25cm}
+\raggedbottom
+
+\graphicspath{{Assets/}}
+
+\graphicspath{{Assets/}}
+
+\graphicspath{{Assets/}}
+
+\newcommand{\makepersonalpage}{
+	\pagestyle{empty}
+	\setcounter{page}{0}
+    
+    \begin{tikzpicture}[remember picture,overlay]
+        % Main Content Centered
+        \node[anchor=center] at (current page.center) {
+            \begin{minipage}{\textwidth}
+                \centering
+                \vspace{1cm}
+                
+
+                
+                % Title: Anup Barman's (Huge, Centered, CfCyan)
+                {\fontsize{80}{90} \fontfamily{ppl} \selectfont \textbf{\color{CfCyan} Anup Barman's}} \\[0.5cm]
+                
+                % Subtitle: CP-Arsenal
+                {\fontsize{25}{30} \fontfamily{ppl} \selectfont \textbf{\color{gray} CP-Arsenal}} \\[0.5cm]
+                
+                % Separator below Name/Subtitle
+                {\rule{0.6\textwidth}{1pt}} \\[0.5cm]
+                
+                
+                % Three Site Logos and Handles
+                \begin{tabular}{c@{\hspace{1.5cm}}c@{\hspace{1.5cm}}c}
+                    \tikz\node[draw=CfCyan, line width=1.5pt, inner sep=4pt, rounded corners=3pt]{\includegraphics[height=1.5cm]{codeforces-icon}}; & 
+                    \tikz\node[draw=CfCyan, line width=1.5pt, inner sep=4pt, rounded corners=3pt]{\includegraphics[height=1.5cm]{atcoder-icon}}; & 
+                    \tikz\node[draw=CfCyan, line width=1.5pt, inner sep=4pt, rounded corners=3pt]{\includegraphics[height=1.5cm]{codechef-icon}}; \\[0.3cm]
+                    {\large \fontfamily{ppl}\selectfont AnupBarman} & {\large \fontfamily{ppl}\selectfont AnupBarman} & {\large \fontfamily{ppl}\selectfont anup\_barman} \\
+                \end{tabular}
+                
+                \vspace{1.5cm}
+                
+                % Date
+                {\small \fontfamily{ppl}\selectfont Updated: \updateDate}
+            \end{minipage}
+        };
+    \end{tikzpicture}
+	\clearpage
+	\pagestyle{fancy}
+}
+
+\newcommand{\printdescription}[1]{
+  \codeheader{Description}{#1}
+}
+\newcommand{\printusage}[1]{
+  \codeheader{Usage}{\texttt{#1}}
+}
+\newcommand{\printtime}[1]{
+  \codeheader{Time}{#1}
+}
+\newcommand{\printmemory}[1]{
+  \codeheader{Memory}{#1}
+}
+\newcommand{\codeheader}[2]{
+	{\par\noindent\normalsize{\textbf{#1:} #2\par}}
+}
+\newcommand{\bigo}[1] {\ensuremath{\mathcal{O} \left( #1 \right)}}
+
+\newenvironment{myitemize}
+{ \begin{itemize}[leftmargin=.5cm]
+    \setlength{\itemsep}{0pt}
+    \setlength{\parskip}{0pt}
+    \setlength{\parsep}{0pt}     }
+{ \end{itemize}                  }
+
+\setlength{\parindent}{0pt}
+\newcommand*{\Scale}[2][4]{\scalebox{#1}{$#2$}}%
+
+\setlength{\columnsep}{1.5mm}
+\setlength{\columnseprule}{1px}
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{2}
+
+\BeforeBeginEnvironment{minted}{\vspace{0mm}}
+\AfterEndEnvironment{minted}{\vspace{-1mm}}
+
+\linespread{0.30}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{1pt}
+% \renewcommand{\footrulewidth}{1pt}
+\renewcommand{\theFancyVerbLine}{\sffamily \textcolor[rgb]{0.15,0.15,0.15}{\small \arabic{FancyVerbLine}}}
+%\rfoot{\thepage}
+
+\lhead{\textcolor{MidnightBlue}{\textit{\textbf{\templateTitle}}} | \textcolor{MidnightBlue}{\textit{\textbf{\Name}}}}
+\setlength\headheight{16pt}
+\rhead{\thepage}
+\headsep = 0pt
+% \textheight = 7.75in
+\textheight = 7.95in
+% \footskip = 16pt
+\footskip = 0mm
+
+\titlespacing*{\section}{0pt}{0.1em}{0.1em}
+\titlespacing*{\subsection}{0pt}{0.1em}{0.1em}
+\titlespacing*{\subsubsection}{0pt}{0.1em}{0.1em}
+
+\titleformat{\section}
+  {\normalfont\fontsize{10}{12}\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\fontsize{9}{11}\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\normalfont\fontsize{8}{10}\bfseries}{\thesubsubsection}{1em}{}
+\subsectionfont{\Huge}
+
+\begin{document}
+\makepersonalpage
+\begin{multicols*}{3}
+\tableofcontents
+\vspace{2mm}
+% \noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+\noindent\rule{9.7cm}{1pt}
+\vspace{2mm}

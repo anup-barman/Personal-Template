@@ -5,6 +5,7 @@ import re
 import pygments
 from time import time
 
+# Decorator to measure execution time of a function
 def benchmark(func):
   def timer():
     start = time()
@@ -17,6 +18,7 @@ def benchmark(func):
 section = ['section', 'subsection', 'subsubsection', 'paragraph']
 text = ''
 
+# Configuration for minted package (code highlighting)
 minted_opts = """
     breaklines = true,
     breakanywhere = true,
@@ -38,12 +40,14 @@ minted_opts = """
     texcl=false
 """
 
+# Supported comment types for parsing metadata
 COMMENT_TYPES = [
     ('/**', '*/'),
     ("'''", "'''"),
     ('"""', '"""'),
 ]
 
+# Find the start of a comment block
 def find_start_comment(source, start=None):
     first = (-1, -1, None)
     for s, e in COMMENT_TYPES:
@@ -59,6 +63,7 @@ def parse_include(line):
         return line[8:].strip()
     return None
 
+# Escape characters for LaTeX
 def escape(input):
     input = input.replace('<', r'\ensuremath{<}')
     input = input.replace('>', r'\ensuremath{>}')
@@ -79,6 +84,7 @@ def codeescape(input):
     input = escape(input)
     return input
 
+# Escape Big-O notation
 def ordoescape(input, esc=True):
     if esc:
         input = escape(input)
@@ -96,6 +102,7 @@ def ordoescape(input, esc=True):
             return r"%s\bigo{%s}%s" % (input[:start], input[start+2:end], ordoescape(input[end+1:], False))
     return input
 
+# Process source file, extracting comments/metadata and code
 def processwithcomments(caption):
   code = ''
   instream = open(caption)
@@ -208,6 +215,7 @@ def processwithcomments(caption):
  
   return code
 
+# Recursively traverse directories and generate LaTeX content
 def gen(level):
   global text
 
@@ -215,6 +223,11 @@ def gen(level):
   files = [x for x in os.listdir(".") if os.path.isfile(x) and x != ".gitignore"]
   
   folders.sort()
+  # Prioritize 'Setup' folder
+  setup_folders = [f for f in folders if f.lower() == 'setup']
+  other_folders = [f for f in folders if f.lower() != 'setup']
+  folders = setup_folders + other_folders
+  
   files.sort()
 
   parent = os.getcwd()
@@ -245,17 +258,17 @@ def main():
   main_dir = os.getcwd()
 
   try:
-    os.chdir('code')
+    os.chdir('CodeLibrary') # Changed from 'code'
   except:
-    print("Error!\nFolder \'code\' not found!")
+    print("Error!\nFolder \'CodeLibrary\' not found!")
     sys.exit()
 
   gen(0)
 
   try:
-    os.chdir(main_dir + '/template')
+    os.chdir(main_dir + '/Template') # Changed from 'template'
   except:
-    print("Error!\nFolder \'template\' not found!")
+    print("Error!\nFolder \'Template\' not found!")
     sys.exit()
 
   text = text + '\\end{multicols}\n'
@@ -269,7 +282,7 @@ def main():
   file.close()
   print("Generating Notebook...")
   print("This may take a while. Please wait...")
-  for i in range(4):
+  for i in range(4): # Run pdflatex multiple times for references
     subprocess.run('pdflatex -interaction=nonstopmode --shell-escape notebook.tex', shell=True, stdout=subprocess.PIPE)
   os.system('rm -r _minted-notebook')
   os.system('mv notebook.pdf ' + '\"' + main_dir + '\"')
