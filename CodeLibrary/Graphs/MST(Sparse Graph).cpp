@@ -2,7 +2,7 @@
 void solve() {
   int n, m;
   cin >> n >> m;
-  vector<tuple<int, int, int>> edges;
+  vector<array<int, 3>> edges;
   for (int i = 0; i < m; ++i) {
     int u, v, wt;
     cin >> u >> v >> wt;
@@ -11,7 +11,7 @@ void solve() {
   sort(edges.begin(), edges.end());
   init(n);
   int cost = 0;
-  for (tuple& [ wt, u, v ] : edges) {
+  for (auto &[wt, u, v] : edges) {
     if (findpar(u) == findpar(v)) continue;
     unite(u, v);
     cost += wt;
