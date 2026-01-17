@@ -1,0 +1,69 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+
+\title{Mathematical Foundations: Pythagorean Triples}
+\author{Study Notes}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+A \textbf{Pythagorean Triple} is a set of three positive integers $(a, b, c)$ satisfying the Diophantine equation:
+\begin{equation}
+    a^2 + b^2 = c^2
+\end{equation}
+These triples describe the integer side lengths of right-angled triangles.
+
+\section{Classification}
+\begin{itemize}
+    \item \textbf{Primitive Pythagorean Triples (PPT):} A triple where $\gcd(a, b, c) = 1$. Every PPT can be used to generate infinitely many imprimitive triples by multiplying each term by a constant $k$.
+    \item \textbf{Parity Properties:} In any PPT, the following must hold:
+    \begin{itemize}
+        \item One leg is always odd, and one leg is always even.
+        \item The hypotenuse $c$ is always odd.
+    \end{itemize}
+\end{itemize}
+
+\section{Euclid's Formula}
+Euclid's formula is a fundamental method for generating all PPTs. For any two integers $m$ and $n$:
+\begin{align*}
+    a &= m^2 - n^2 \\
+    b &= 2mn \\
+    c &= m^2 + n^2
+\end{align*}
+To ensure the triple is \textbf{primitive}, the parameters must satisfy:
+\begin{enumerate}
+    \item $m > n > 0$
+    \item $\gcd(m, n) = 1$
+    \item $m+n$ is odd (one is even, one is odd)
+\end{enumerate}
+
+\section{Divisibility Rules}
+Every Pythagorean triple $(a, b, c)$ obeys the following:
+\begin{itemize}
+    \item $3 \mid ab$ (At least one leg is divisible by 3)
+    \item $4 \mid ab$ (At least one leg is divisible by 4)
+    \item $5 \mid abc$ (At least one of the three sides is divisible by 5)
+    \item The product $abc$ is always divisible by 60.
+\end{itemize}
+
+\section{Complex Number Derivation}
+Pythagorean triples can be derived using \textbf{Gaussian Integers}. Consider a Gaussian integer $z = m + ni \in \mathbb{Z}[i]$. Squaring $z$ yields:
+\begin{equation}
+    z^2 = (m + ni)^2 = (m^2 - n^2) + (2mn)i
+\end{equation}
+The norm of $z^2$ is $|z^2| = |z|^2 = (m^2 + n^2)$. This mapping provides the algebraic foundation for Euclid's formula.
+
+\section{Geometric Perspective}
+Dividing $a^2 + b^2 = c^2$ by $c^2$ yields the unit circle equation:
+\begin{equation}
+    \left(\frac{a}{c}\right)^2 + \left(\frac{b}{c}\right)^2 = 1
+\end{equation}
+Thus, finding PPTs is equivalent to finding points on the unit circle $x^2 + y^2 = 1$ where $x$ and $y$ are both \textbf{rational numbers}.
+
+\end{document}
