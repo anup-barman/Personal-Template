@@ -1,7 +1,5 @@
-class stree {
+struct stree {
   vector<ll> st;
-
- public:
   stree(int n) {
     st.assign((n << 2) + 10, 0);
   }
@@ -27,8 +25,10 @@ class stree {
       return;
     }
     int v = u << 1, w = v | 1, m = (s + e) >> 1;
-    if (i <= m) update(i, x, v, s, m);
-    else update(i, x, w, m + 1, e);
+    if (i <= m)
+      update(i, x, v, s, m);
+    else
+      update(i, x, w, m + 1, e);
     st[u] = st[v] + st[w];
   }
 };
