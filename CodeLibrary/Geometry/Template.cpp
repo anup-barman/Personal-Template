@@ -12,6 +12,9 @@ struct pt {
   void operator-=(const pt& other) {
     x -= other.x, y -= other.y;
   }
+  bool operator<(const pt& b) {
+    return make_pair(x, y) < make_pair(b.x, b.y);
+  }
   ll cross(const pt& other) const {
     return x * other.y - y * other.x;
   }
