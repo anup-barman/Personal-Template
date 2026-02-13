@@ -1,7 +1,7 @@
 const int MX = 1e5 + 10;
 int par[MX], sz[MX];
 void init() {
-  for (int i = 1; i < MX; i++) {
+  for (int i = 0; i < MX; i++) {
     par[i] = i;
     sz[i] = 1;
   }
