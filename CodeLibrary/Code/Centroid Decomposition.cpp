@@ -1,7 +1,6 @@
 vector<int> lst[MX];
 bool dead[MX];
 int sz[MX];
-
 void get_sz(int u, int p) {
   sz[u] = 1;
   for (int v : lst[u]) {
@@ -19,11 +18,14 @@ int find_cen(int u, int p, int tot) {
   }
   return u;
 }
+void calc(int cen) {
+  // work on centroid here
+}
 void decomp(int u) {
   get_sz(u, -1);
   int tot = sz[u];
   int cen = find_cen(u, -1, tot);
-  // work on centroid
+  calc(cen);
   dead[cen] = true;
   for (int v : lst[cen]) {
     if (!dead[v]) {

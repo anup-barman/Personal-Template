@@ -1,156 +1,135 @@
 #include <algorithm>
+#include <cmath>
 #include <iostream>
+#include <string>
 #include <vector>
 
 using namespace std;
 
-// Maximum limits as per problem statement
-const int MAXN = 200005;
-const int MAXK = 1000005;
-const int INF = 1e9;
+typedef long long ll;
 
-// Global variables to store graph and state
-struct Edge {
-  int to;
-  int length;
-};
+// Max H1 value is roughly 10^7 (half of 10^14)
+// We need a sieve up to this value to factorize H1 quickly.
+const int MAX_H1 = 10000005;
+int spf[MAX_H1];  // Smallest Prime Factor
 
-vector<Edge> adj[MAXN];
-bool removed[MAXN];      // To mark removed centroids
-int subtree_size[MAXN];  // To calculate subtree sizes
-int min_edges[MAXK];     // Lookup table: min edges for distance 'd'
-int result = INF;        // Global best answer
-int K_target;            // The target path length K
-
-// DFS to calculate subtree sizes
-void get_subtree_sizes(int u, int p) {
-  subtree_size[u] = 1;
-  for (auto& e : adj[u]) {
-    if (e.to != p && !removed[e.to]) {
-      get_subtree_sizes(e.to, u);
-      subtree_size[u] += subtree_size[e.to];
-    }
-  }
-}
-
-// DFS to find the centroid
-int find_centroid(int u, int p, int total_nodes) {
-  for (auto& e : adj[u]) {
-    if (e.to != p && !removed[e.to] && subtree_size[e.to] > total_nodes / 2) {
-      return find_centroid(e.to, u, total_nodes);
-    }
-  }
-  return u;
-}
-
-// Structure to temporarily store path info during DFS
-struct PathInfo {
-  int dist;
-  int edges;
-};
-
-// DFS to collect all paths from the current subtree
-void get_paths(int u, int p, int current_dist, int current_edges, vector<PathInfo>& paths) {
-  if (current_dist > K_target) return;  // Optimization: Don't go deeper if K is exceeded
-
-  paths.push_back({current_dist, current_edges});
-
-  for (auto& e : adj[u]) {
-    if (e.to != p && !removed[e.to]) {
-      get_paths(e.to, u, current_dist + e.length, current_edges + 1, paths);
-    }
-  }
-}
-
-// Main decomposition function
-void decompose(int u) {
-  // 1. Calculate subtree sizes and find the centroid
-  get_subtree_sizes(u, -1);
-  int total_nodes = subtree_size[u];
-  int centroid = find_centroid(u, -1, total_nodes);
-
-  // 2. Process paths passing through the centroid
-  // We use a list to keep track of modified indices to reset min_edges efficiently
-  vector<int> modified_indices;
-  min_edges[0] = 0;  // Base case: path of length 0 at centroid has 0 edges
-  modified_indices.push_back(0);
-
-  // Iterate over all children of the centroid
-  for (auto& e : adj[centroid]) {
-    if (removed[e.to]) continue;
-
-    // Collect all paths from this child's subtree
-    vector<PathInfo> child_paths;
-    get_paths(e.to, centroid, e.length, 1, child_paths);
-
-    // PHASE 1: QUERY
-    // Check if any path in this subtree can match with a path from previous subtrees
-    for (auto& p : child_paths) {
-      if (K_target - p.dist >= 0) {
-        // If the complementary distance exists in min_edges
-        if (min_edges[K_target - p.dist] != INF) {
-          result = min(result, min_edges[K_target - p.dist] + p.edges);
-        }
-      }
-    }
-
-    // PHASE 2: UPDATE
-    // Add these paths to the global min_edges array for the next children to use
-    for (auto& p : child_paths) {
-      if (p.dist <= K_target) {
-        if (min_edges[p.dist] == INF) {
-          // If this is the first time we see this distance, record it to reset later
-          modified_indices.push_back(p.dist);
-          min_edges[p.dist] = p.edges;
-        } else {
-          // Update if we found a path with fewer edges
-          min_edges[p.dist] = min(min_edges[p.dist], p.edges);
-        }
+// Precompute smallest prime factors
+void sieve() {
+  for (int i = 0; i < MAX_H1; ++i) spf[i] = i;
+  for (int i = 2; i * i < MAX_H1; ++i) {
+    if (spf[i] == i) {
+      for (int j = i * i; j < MAX_H1; j += i) {
+        if (spf[j] == j) spf[j] = i;
       }
     }
   }
-
-  // 3. Clean up: Reset min_edges array for the parent recursion
-  for (int idx : modified_indices) {
-    min_edges[idx] = INF;
-  }
-
-  // 4. Recurse: Remove centroid and decompose subtrees
-  removed[centroid] = true;
-  for (auto& e : adj[centroid]) {
-    if (!removed[e.to]) {
-      decompose(e.to);
-    }
-  }
 }
 
-// Function signature matching the IOI requirement
-int best_path(int N, int K, int H[][2], int L[]) {
-  // Initialization
-  K_target = K;
-  result = INF;
-  for (int i = 0; i < N; i++) {
-    adj[i].clear();
-    removed[i] = false;
-  }
-  // Initialize min_edges with INF
-  for (int i = 0; i <= K; i++) {
-    min_edges[i] = INF;
+void solve(int t) {
+  ll A, B;
+  cin >> A >> B;
+
+  string sB = to_string(B);
+  string sA = to_string(A);
+  int lenB = sB.length();
+  int lenA = sA.length();
+
+  // Strategy: Iterate lengths from Largest (lenB) down to Smallest (lenA)
+  for (int len = lenB; len >= lenA; --len) {
+    // Calculate split point
+    // If len is odd (2r+1), H1 has r digits, H2 has r+1 digits.
+    // If len is even (2r), H1 has r digits, H2 has r digits.
+    int r = len / 2;
+    int k = len - r;  // Length of second half
+
+    // Calculate 10^k and 10^r safely
+    ll powerOf10_k = 1;
+    for (int i = 0; i < k; ++i) powerOf10_k *= 10;
+
+    ll powerOf10_r = 1;
+    for (int i = 0; i < r; ++i) powerOf10_r *= 10;  // Used to determine bounds of H1
+
+    // Determine the Upper Bound for H1
+    ll start_h1;
+    if (len == lenB) {
+      start_h1 = B / powerOf10_k;
+    } else {
+      // If length is less than B's length, max number is 99...9
+      // Max H1 is the first r digits of 99...9
+      start_h1 = powerOf10_r - 1;
+    }
+
+    // Determine the Lower Bound for H1
+    ll min_h1;
+    if (len == lenA) {
+      min_h1 = A / powerOf10_k;
+    } else {
+      // If length is greater than A's length, min number is 10...0
+      // Min H1 is 10^(r-1)
+      min_h1 = powerOf10_r / 10;
+    }
+
+    // Greedy Search: Iterate H1 downwards
+    for (ll h1 = start_h1; h1 >= min_h1; --h1) {
+      if (h1 == 0) continue;  // First half cannot be zero
+      if (h1 == 1) continue;  // 1 has no divisors > 1
+
+      // Determine max allowed value for H2
+      ll limit_h2;
+      if (len == lenB && h1 == start_h1) {
+        // If we are at the tight upper bound of B, H2 is restricted by B's suffix
+        limit_h2 = B % powerOf10_k;
+      } else {
+        // Otherwise H2 can be anything up to 99...9 (length k)
+        limit_h2 = powerOf10_k - 1;
+      }
+
+      // Find best H2: Largest number <= limit_h2 that shares a factor with h1
+      ll best_h2 = -1;
+      int temp = (int)h1;
+
+      // Factorize H1 using SPF
+      while (temp > 1) {
+        int p = spf[temp];
+
+        // We need largest multiple of p <= limit_h2
+        if (limit_h2 >= p) {
+          ll candidate = (limit_h2 / p) * p;
+          if (candidate > best_h2) best_h2 = candidate;
+        }
+
+        // Divide out p completely
+        while (temp % p == 0) temp /= p;
+      }
+
+      // If we found a valid H2 (must be non-zero)
+      if (best_h2 > 0) {
+        ll result = h1 * powerOf10_k + best_h2;
+
+        // Final Check: Must be >= A (Lower bound check)
+        if (result >= A) {
+          cout << "Case " << t << ": " << result << "\n";
+          return;  // Found the largest!
+        }
+      }
+    }
   }
 
-  // Build the graph
-  for (int i = 0; i < N - 1; i++) {
-    int u = H[i][0];
-    int v = H[i][1];
-    int w = L[i];
-    adj[u].push_back({v, w});
-    adj[v].push_back({u, w});
+  cout << "Case " << t << ": impossible\n";
+}
+
+int main() {
+  // Optimize I/O operations
+  ios_base::sync_with_stdio(false);
+  cin.tie(NULL);
+
+  sieve();
+
+  int T;
+  if (cin >> T) {
+    for (int i = 1; i <= T; ++i) {
+      solve(i);
+    }
   }
-
-  // Start Centroid Decomposition
-  decompose(0);
-
-  // Return result
-  if (result == INF) return -1;
-  return result;
+  return 0;
 }
