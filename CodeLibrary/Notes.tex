@@ -1,46 +1,47 @@
 \subsection{Geometry}
 
 \subsubsection{Triangles}
-  Circumradius: $R=\dfrac{abc}{4A}$ , Inradius: $r=\dfrac{A}{s}$\\
-  The area of a triangle using two sides and the included angle can be given as:  \[ A = \frac{1}{2} ab \sin \angle C \]
-  Length of median (divides triangle into two equal-area triangles): $m_a=\tfrac{1}{2}\sqrt{2b^2+2c^2-a^2}$\\
-  Length of bisector (divides angles in two): $s_a=\sqrt{bc\left[1-\left(\dfrac{a}{b+c}\right)^2\right]}$\\
-  Law of tangents: $\dfrac{a+b}{a-b}=\dfrac{\tan\dfrac{\alpha+\beta}{2}}{\tan\dfrac{\alpha-\beta}{2}}$\\
-  Area given 3 sides $a, $b, $c: $A=\sqrt{s(s-a)(s-b)(s-c)}$ where $s=\dfrac{a+b+c}{2}$\\
-  
-\subsubsection{Quadrilaterals}
-  With side lengths $a,b,c,d$, diagonals $e, f$, diagonals angle $\theta$, area $A$ and
-  magic flux $F=b^2+d^2-a^2-c^2$:
+Circumradius: $R=\dfrac{abc}{4A}$ , Inradius: $r=\dfrac{A}{s}$\\
+The area of a triangle using two sides and the included angle can be given as:  \[ A = \frac{1}{2} ab \sin \angle C \]
+Length of median (divides triangle into two equal-area triangles): $m_a=\tfrac{1}{2}\sqrt{2b^2+2c^2-a^2}$\\
+Length of bisector (divides angles in two): $s_a=\sqrt{bc\left[1-\left(\dfrac{a}{b+c}\right)^2\right]}$\\
+Law of tangents: $\dfrac{a+b}{a-b}=\dfrac{\tan\dfrac{\alpha+\beta}{2}}{\tan\dfrac{\alpha-\beta}{2}}$\\
+Area given 3 sides of a triangle $a,$b,$c : $A=\sqrt{s(s-a)(s-b)(s-c)}$ where $s=\dfrac{a+b+c}{2}$\\
 
-  \[ 4A = 2ef \cdot \sin\theta = F\tan\theta = \sqrt{4e^2f^2-F^2} \]
+\subsubsection{Quadrilaterals}
+With side lengths $a,b,c,d$, diagonals $e, f$, diagonals angle $\theta$, area $A$ and
+magic flux $F=b^2+d^2-a^2-c^2$:
+
+\[ 4A = 2ef \cdot \sin\theta = F\tan\theta = \sqrt{4e^2f^2-F^2} \]
 
 For cyclic quadrilaterals the sum of opposite angles is $180^\circ$,
 $ef = ac + bd$, and $A = \sqrt{(p-a)(p-b)(p-c)(p-d)}$.
 
 \subsubsection{Spherical coordinates}
 \centerline{\includegraphics[width=25mm]{../code/sphericalCoordinates}}
-\[\begin{array}{cc}
-x = r\sin\theta\cos\phi & r = \sqrt{x^2+y^2+z^2}\\
-y = r\sin\theta\sin\phi & \theta = \textrm{acos}(z/\sqrt{x^2+y^2+z^2})\\
-z = r\cos\theta & \phi = \textrm{atan2}(y,x)
+\[
+  \begin{array}{cc}
+    x = r\sin\theta\cos\phi & r = \sqrt{x^2+y^2+z^2}\\
+    y = r\sin\theta\sin\phi & \theta = \textrm{acos}(z/\sqrt{x^2+y^2+z^2})\\
+    z = r\cos\theta & \phi = \textrm{atan2}(y,x)
 \end{array}\]
 
 \subsubsection{Pick's Theorem:} \\
-  Given a lattice polygon with non-zero area, we define: S as the area of the polygon, I as the number of integer-coordinate points strictly inside the polygon, B as the number of integer-coordinate points on the boundary of the polygon.
-  Then, Pick's Theorem states: $$S=I+\frac{B}{2}-1$$
-  The number of lattice points on segments (x1, y1) to (x2 , y2) is: gcd(abs(x2 - x1) , abs(y2 - y1)) + 1
+Given a lattice polygon with non-zero area, we define: S as the area of the polygon, I as the number of integer-coordinate points strictly inside the polygon, B as the number of integer-coordinate points on the boundary of the polygon.
+Then, Pick's Theorem states: $$S=I+\frac{B}{2}-1$$
+The number of lattice points on segments (x1, y1) to (x2 , y2) is: gcd(abs(x2 - x1) , abs(y2 - y1)) + 1
 
 \subsubsection{Polygon}
 For a regular polygon with \( n \) sides and side length \( a \), the circumradius \( R \) is given by:
 \[
-R = \frac{a}{2 \sin\left(\frac{\pi}{n}\right)}
+  R = \frac{a}{2 \sin\left(\frac{\pi}{n}\right)}
 \]
 
 \subsubsection{Area of a Circular Segment}
 The area of a circular segment, which is the region enclosed by a chord and the corresponding arc, can be calculated using the formula:
 
 \[
-A = \frac{R^2}{2} \left(\theta - \sin\theta\right)
+  A = \frac{R^2}{2} \left(\theta - \sin\theta\right)
 \]
 
 where:
@@ -68,9 +69,9 @@ where:
 
   \item The Hockey Stick Identity
 
-     - (Left to right) Sum over \( n \) and \( k \): \( \sum_{k = 0}^m \binom{n + k}{k} = \binom{n + m - 1}{m} \)
+    - (Left to right) Sum over \( n \) and \( k \): \( \sum_{k = 0}^m \binom{n + k}{k} = \binom{n + m - 1}{m} \)
 
-     - (Right to left) Sum over \( n \): \( \sum_{m = 0}^n \binom{m}{k} = \binom{n + 1}{k + 1} \)
+    - (Right to left) Sum over \( n \): \( \sum_{m = 0}^n \binom{m}{k} = \binom{n + 1}{k + 1} \)
 
   \item Sum of the squares: \( \sum_{k = 0}^n (\binom{n}{k})^2 = \binom{2n}{n} \)
 
@@ -97,7 +98,6 @@ where:
 
 \subsection{Fibonacci Number}
 
-
 % \begin{equation}
 \textbf{1.} $k=A-B, F_A F_B=F_{k+1} F_A^2 + F_k F_A F_{A-1}$\\
 \textbf{2.}$\sum_{i=0}^n F_i^2=F_{n+1} F_n$ \hspace{1cm}
@@ -109,13 +109,12 @@ where:
 \textbf{8.}$\operatorname{gcd}\left(F_n, F_{n+1}\right)=\operatorname{gcd}\left(F_n, F_{n+2}\right)= \operatorname{gcd}\left(F_{n+1}, F_{n+2}\right)=1$
 
 \subsection{Sums}
-  1^2 + 2^2 + 3^2 + \dots + n^2 &= \frac{n(2n+1)(n+1)}{6} \\
-  1^3 + 2^3 + 3^3 + \dots + n^3 &= \frac{n^2(n+1)^2}{4} \\
-  1^4 + 2^4 + 3^4 + \dots + n^4 &= \frac{n(n+1)(2n+1)(3n^2 + 3n - 1)}{30} \\
-  $\Scale[0.85]{ \sum\limits_{i=1}^{n} i^{m} = \frac{1}{m + 1}  \left[ (n + 1)^{m + 1} - 1 - \sum\limits_{i=1}^{n} \left((i+1)^{m+1} - i^{m+1} - (m + 1)i^{m}\right)\right]} $\\
-  $\Scale[0.99]{\sum\limits_{i=1}^{n-1} i^{m} = \frac{1}{m + 1} \sum\limits_{k=0}^{m} { {m+1}\choose{k} } B_{k}n^{m + 1 - k}}$\\
-  $\sum\limits_{k=0}^n kx^k = (x - (n+1)x^{n+1} + nx^{n+2})/(x-1)^2$
-
+1^2 + 2^2 + 3^2 + \dots + n^2 &= \frac{n(2n+1)(n+1)}{6} \\
+1^3 + 2^3 + 3^3 + \dots + n^3 &= \frac{n^2(n+1)^2}{4} \\
+1^4 + 2^4 + 3^4 + \dots + n^4 &= \frac{n(n+1)(2n+1)(3n^2 + 3n - 1)}{30} \\
+$\Scale[0.85]{ \sum\limits_{i=1}^{n} i^{m} = \frac{1}{m + 1}  \left[ (n + 1)^{m + 1} - 1 - \sum\limits_{i=1}^{n} \left((i+1)^{m+1} - i^{m+1} - (m + 1)i^{m}\right)\right]} $\\
+$\Scale[0.99]{\sum\limits_{i=1}^{n-1} i^{m} = \frac{1}{m + 1} \sum\limits_{k=0}^{m} { {m+1}\choose{k} } B_{k}n^{m + 1 - k}}$\\
+$\sum\limits_{k=0}^n kx^k = (x - (n+1)x^{n+1} + nx^{n+2})/(x-1)^2$
 
 \subsection{Series}
 $$e^x = 1+x+\frac{x^2}{2!}+\frac{x^3}{3!}+\dots,\,(-\infty<x<\infty)$$
@@ -136,45 +135,44 @@ $$ x(x + 1)(1 - x)^-3 = 1 + x + 4x^2 + 9x^3 + 16x^4 + 25x^5 + ... $$
 $$ e^x = 1 + x + (x^2)/2! + (x^3)/3! + (x^4)/4! + ... $$
 
 \subsection{Pythagorean Triples}
- The Pythagorean triples are uniquely generated by
- \[ a=k\cdot (m^{2}-n^{2}),\ \,b=k\cdot (2mn),\ \,c=k\cdot (m^{2}+n^{2}), \]
- with $m > n > 0$, $k > 0$, $m \bot n$, and either $m$ or $n$ even.
-
+The Pythagorean triples are uniquely generated by
+\[ a=k\cdot (m^{2}-n^{2}),\ \,b=k\cdot (2mn),\ \,c=k\cdot (m^{2}+n^{2}), \]
+with $m > n > 0$, $k > 0$, $m \bot n$, and either $m$ or $n$ even.
 
 \subsection{Number Theory}
 
 \begin{itemize}
-\item HCN: 1e6(240), 1e9(1344), 1e12(6720), 1e14(17280), 1e15(26880), 1e16(41472)
-\item \( gcd(a, b, c, d, ...) = gcd(a, b - a, c - b, d - c, ...) \)
-\item \( gcd(a + k, b + k, c + k, d + k, ...) = gcd(a + k, b - a, c - b, d - c, ...) \)
-\item Primitive root exists iff \( n = 1, 2, 4, p^k, 2\times p^k \), where \( p \) is an odd prime.
-\item If primtive root exists, there are \( \phi(\phi(n)) \) primtive roots of \( n \).
-\item The numbers from \( 1 \) to \( n \) have in total \( O(n\log\log n) \) unique prime factors.
-\item \( x \equiv r_1 \mod m1 \) and \( x \equiv r_2 \mod m2 \) has a solution iff \( \gcd(m_1, m_2) | (r_1 - r_2) \)
-Solution of \( x^2 \equiv a (\mod p) \)
-\item \( ca \equiv cb \pmod{m} \iff a \equiv b \pmod{ \frac{n}{\gcd(n, c)}} \)
-\item \( ax \equiv b \pmod{m} \) has a solution \( \iff \) \( \gcd(a, m) | b \)
-\item If \( ax \equiv b \pmod{m} \) has a solution, then it has \( gcd(a, m) \) solutions and they are separated by \( \frac{m}{\gcd(a, m)} \)
-\item \( ax \equiv 1 \pmod{m} \) has a solution or \( a \) is invertible \( \pmod{m} \) \( \iff \) \(\gcd(a, m) = 1 \)
-\item \( x^2 \equiv 1 \pmod{p} \) then \( x \equiv \pm 1 \pmod{p} \)
-\item There are \( \frac{p - 1}{2} \) has no solution.
-\item There are \( \frac{p - 1}{2} \) has exaclty two solutions.
-\item When \( p \% 4 = 3 \), \( x \equiv \pm a^{\frac{p + 1}{4}} \)
-\item When \( p \% 8 = 5 \), \( x \equiv a^{\frac{p + 3}{8}} \; or \; x \equiv 2^{\frac{p - 1}{4}} a^{\frac{p + 3}{8}} \)
+  \item HCN: 1e6(240), 1e9(1344), 1e12(6720), 1e14(17280), 1e15(26880), 1e16(41472)
+  \item \( gcd(a, b, c, d, ...) = gcd(a, b - a, c - b, d - c, ...) \)
+  \item \( gcd(a + k, b + k, c + k, d + k, ...) = gcd(a + k, b - a, c - b, d - c, ...) \)
+  \item Primitive root exists iff \( n = 1, 2, 4, p^k, 2\times p^k \), where \( p \) is an odd prime.
+  \item If primtive root exists, there are \( \phi(\phi(n)) \) primtive roots of \( n \).
+  \item The numbers from \( 1 \) to \( n \) have in total \( O(n\log\log n) \) unique prime factors.
+  \item \( x \equiv r_1 \mod m1 \) and \( x \equiv r_2 \mod m2 \) has a solution iff \( \gcd(m_1, m_2) | (r_1 - r_2) \)
+    Solution of \( x^2 \equiv a (\mod p) \)
+  \item \( ca \equiv cb \pmod{m} \iff a \equiv b \pmod{ \frac{n}{\gcd(n, c)}} \)
+  \item \( ax \equiv b \pmod{m} \) has a solution \( \iff \) \( \gcd(a, m) | b \)
+  \item If \( ax \equiv b \pmod{m} \) has a solution, then it has \( gcd(a, m) \) solutions and they are separated by \( \frac{m}{\gcd(a, m)} \)
+  \item \( ax \equiv 1 \pmod{m} \) has a solution or \( a \) is invertible \( \pmod{m} \) \( \iff \) \(\gcd(a, m) = 1 \)
+  \item \( x^2 \equiv 1 \pmod{p} \) then \( x \equiv \pm 1 \pmod{p} \)
+  \item There are \( \frac{p - 1}{2} \) has no solution.
+  \item There are \( \frac{p - 1}{2} \) has exaclty two solutions.
+  \item When \( p \% 4 = 3 \), \( x \equiv \pm a^{\frac{p + 1}{4}} \)
+  \item When \( p \% 8 = 5 \), \( x \equiv a^{\frac{p + 3}{8}} \; or \; x \equiv 2^{\frac{p - 1}{4}} a^{\frac{p + 3}{8}} \)
 \end{itemize}
 
 \subsubsection{Primes}
-  $p=962592769$ is such that $2^{21} \mid p-1$, which may be useful. For hashing
-  use 970592641 (31-bit number), 31443539979727 (45-bit), 3006703054056749
-  (52-bit). There are 78498 primes less than 1\,000\,000.
+$p=962592769$ is such that $2^{21} \mid p-1$, which may be useful. For hashing
+use 970592641 (31-bit number), 31443539979727 (45-bit), 3006703054056749
+(52-bit). There are 78498 primes less than 1\,000\,000.
 
-  Primitive roots exist modulo any prime power $p^a$, except for $p = 2, a > 2$, and there are $\phi(\phi(p^a))$ many.
-  For $p = 2, a > 2$, the group $\mathbb Z_{2^a}^\times$ is instead isomorphic to $\mathbb Z_2 \times \mathbb Z_{2^{a-2}}$.
+Primitive roots exist modulo any prime power $p^a$, except for $p = 2, a > 2$, and there are $\phi(\phi(p^a))$ many.
+For $p = 2, a > 2$, the group $\mathbb Z_{2^a}^\times$ is instead isomorphic to $\mathbb Z_2 \times \mathbb Z_{2^{a-2}}$.
 
 \subsubsection{Estimates}
-  $\sum_{d|n} d = O(n \log \log n)$.
+$\sum_{d|n} d = O(n \log \log n)$.
 
-  The number of divisors of $n$ is at most around 100 for $n < 5e4$, 500 for $n < 1e7$, 2000 for $n < 1e10$, 200\,000 for $n < 1e19$.
+The number of divisors of $n$ is at most around 100 for $n < 5e4$, 500 for $n < 1e7$, 2000 for $n < 1e10$, 200\,000 for $n < 1e19$.
 
 \subsubsection{Perfect numbers}  $n>1$ is called perfect if it equals
 sum of its proper divisors and $1$.  Even $n$ is perfect iff $n = 2^{p-1} (2^p - 1)$
@@ -284,58 +282,57 @@ form $p=4k+3$ occurs an even number of times in $n$'s factorization.
 % }}}
 
 \subsection{Permutations}
-  \subsubsection{Factorial}
-    \begin{center}
+\subsubsection{Factorial}
+\begin{center}
 \begin{tabular}{l}
-\begin{tabular}{c|c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c}
-$n$  & 1 & 2 & 3 & 4  & 5   & 6   & 7    & 8     & 9      & 10\\
-\hline
-$n!$ & 1 & 2 & 6 & 24 & 120 & 720 & 5040 & 40320 & 362880 & 3628800\\
-\end{tabular}\\
-\begin{tabular}{c|c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c}
-$n$  & 11    & 12    & 13    & 14     & 15     & 16     & 17\\
-\hline
-$n!$ & 4.0e7 & 4.8e8 & 6.2e9 & 8.7e10 & 1.3e12 & 2.1e13 & 3.6e14\\
-\end{tabular}\\
-\begin{tabular}{c|c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c}
-$n$  & 20   & 25   & 30   & 40   & 50   & 100   & 150   & 171\\
-\hline
-$n!$ & 2e18 & 2e25 & 3e32 & 8e47 & 3e64 & 9e157 & 6e262 & \scriptsize{$>$DBL\_MAX}\\
-\end{tabular}
+  \begin{tabular}{c|c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c}
+    $n$  & 1 & 2 & 3 & 4  & 5   & 6   & 7    & 8     & 9      & 10\\
+    \hline
+    $n!$ & 1 & 2 & 6 & 24 & 120 & 720 & 5040 & 40320 & 362880 & 3628800\\
+  \end{tabular}\\
+  \begin{tabular}{c|c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c}
+    $n$  & 11    & 12    & 13    & 14     & 15     & 16     & 17\\
+    \hline
+    $n!$ & 4.0e7 & 4.8e8 & 6.2e9 & 8.7e10 & 1.3e12 & 2.1e13 & 3.6e14\\
+  \end{tabular}\\
+  \begin{tabular}{c|c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c}
+    $n$  & 20   & 25   & 30   & 40   & 50   & 100   & 150   & 171\\
+    \hline
+    $n!$ & 2e18 & 2e25 & 3e32 & 8e47 & 3e64 & 9e157 & 6e262 & \scriptsize{$>$DBL\_MAX}\\
+  \end{tabular}
 \end{tabular}
 \end{center}
 
+\subsubsection{Cycles}
+Let $g_S(n)$ be the number of $n$-permutations whose cycle lengths all belong to the set $S$. Then
+$$\sum_{n=0} ^\infty g_S(n) \frac{x^n}{n!} = \exp\left(\sum_{n\in S} \frac{x^n} {n} \right)$$
 
-  \subsubsection{Cycles}
-    Let $g_S(n)$ be the number of $n$-permutations whose cycle lengths all belong to the set $S$. Then
-    $$\sum_{n=0} ^\infty g_S(n) \frac{x^n}{n!} = \exp\left(\sum_{n\in S} \frac{x^n} {n} \right)$$
+\subsubsection{Derangements}
+Permutations of a set such that none of the elements appear in their original position.
+\[ \mkern-2mu D(n) = (n-1)(D(n-1)+D(n-2)) = n D(n-1)+(-1)^n = \left\lfloor\frac{n!}{e}\right\rceil \]
 
-  \subsubsection{Derangements}
-    Permutations of a set such that none of the elements appear in their original position.
-    \[ \mkern-2mu D(n) = (n-1)(D(n-1)+D(n-2)) = n D(n-1)+(-1)^n = \left\lfloor\frac{n!}{e}\right\rceil \]
+\subsubsection{Burnside's lemma}
+Given a group $G$ of symmetries and a set $X$, the number of elements of $X$ \emph{up to symmetry} equals
+\[ {\frac {1}{|G|}}\sum _{{g\in G}}|X^{g}|, \]
+where $X^{g}$ are the elements fixed by $g$ ($g.x = x$).
 
-  \subsubsection{Burnside's lemma}
-    Given a group $G$ of symmetries and a set $X$, the number of elements of $X$ \emph{up to symmetry} equals
-     \[ {\frac {1}{|G|}}\sum _{{g\in G}}|X^{g}|, \]
-     where $X^{g}$ are the elements fixed by $g$ ($g.x = x$).
-
-     If $f(n)$ counts ``configurations'' (of some sort) of length $n$, we can ignore rotational symmetry using $G = \mathbb Z_n$ to get
-     \[ g(n) = \frac 1 n \sum_{k=0}^{n-1}{f(\text{gcd}(n, k))} = \frac 1 n \sum_{k|n}{f(k)\phi(n/k)} \]
+If $f(n)$ counts ``configurations'' (of some sort) of length $n$, we can ignore rotational symmetry using $G = \mathbb Z_n$ to get
+\[ g(n) = \frac 1 n \sum_{k=0}^{n-1}{f(\text{gcd}(n, k))} = \frac 1 n \sum_{k|n}{f(k)\phi(n/k)} \]
 
 \subsection{Partitions and subsets}
-  \subsubsection{Partition function}
-    Number of ways of writing $n$ as a sum of positive integers, disregarding the order of the summands.
-    \[ p(0) = 1,\ p(n) = \sum_{k \in \mathbb Z \setminus \{0\}}{(-1)^{k+1} p(n - k(3k-1) / 2)} \]
-    \[ p(n) \sim 0.145 / n \cdot \exp(2.56 \sqrt{n}) \]
+\subsubsection{Partition function}
+Number of ways of writing $n$ as a sum of positive integers, disregarding the order of the summands.
+\[ p(0) = 1,\ p(n) = \sum_{k \in \mathbb Z \setminus \{0\}}{(-1)^{k+1} p(n - k(3k-1) / 2)} \]
+\[ p(n) \sim 0.145 / n \cdot \exp(2.56 \sqrt{n}) \]
 
-    \begin{center}
-    \begin{tabular}{c|c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c}
-      $n$    & 0 & 1 & 2 & 3 & 4 & 5 & 6  & 7  & 8  & 9  & 20  & 50  & 100 \\ \hline
-      $p(n)$ & 1 & 1 & 2 & 3 & 5 & 7 & 11 & 15 & 22 & 30 & 627 & $\mathtt{\sim}$2e5 & $\mathtt{\sim}$2e8 \\
-    \end{tabular}
-    \end{center}
+\begin{center}
+\begin{tabular}{c|c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c}
+  $n$    & 0 & 1 & 2 & 3 & 4 & 5 & 6  & 7  & 8  & 9  & 20  & 50  & 100 \\ \hline
+  $p(n)$ & 1 & 1 & 2 & 3 & 5 & 7 & 11 & 15 & 22 & 30 & 627 & $\mathtt{\sim}$2e5 & $\mathtt{\sim}$2e8 \\
+\end{tabular}
+\end{center}
 
-  \subsubsection{Partition Number}
+\subsubsection{Partition Number}
 
 - Time Complexity: $ O(n\sqrt{n}) $
 \begin{verbatim}
@@ -372,7 +369,8 @@ The number of ways of selecting \( k \) objects, no two consecutive,from \( n \)
 
 \item The number of labeled undirected graphs with \( n \) vertices, \( G_n = 2^{\binom{n}{2}} \)
 
-\item The number of labeled directed graphs with \( n \) vertices, \( G_n = 2^{n(n \item 1)} \)
+\item The number of labeled directed graphs with \( n \) vertices, \( G_n = 2^{n(n
+\item 1)} \)
 
 \item The number of connected labeled undirected graphs with \( n \) vertices, \( C_n = 2^{\binom{n}{2}} - \frac{1}{n} \sum_{k = 1}^{n - 1} k \binom{n}{k} 2^{\binom{n-k}{2}}C_k = 2^{\binom{n}{2}} - \sum_{k = 1}^{n - 1} \binom{n - 1}{k - 1} 2^{\binom{n-k}{2}}C_k \)
 
@@ -382,70 +380,66 @@ The number of ways of selecting \( k \) objects, no two consecutive,from \( n \)
 
 \item Number of ways to color a graph using k color such that no two adjacent nodes have same color
 
-  # Complete graph = \( k(k-1)(k-2)...(k-n+1) \)
+# Complete graph = \( k(k-1)(k-2)...(k-n+1) \)
 
-  # Tree = \( k(k - 1)^{n - 1} \)
+# Tree = \( k(k - 1)^{n - 1} \)
 
-  # Cycle = \( (k - 1)^n + (-1)^n (k - 1) \)
+# Cycle = \( (k - 1)^n + (-1)^n (k - 1) \)
 
 \item Number of trees with $ n $ labeled nodes: $ n^{n - 2} $
 
 \subsection{General purpose numbers}
-  \subsubsection{Eulerian numbers}
-    Number of permutations $\pi \in S_n$ in which exactly $k$ elements are greater than the previous element. $k$ $j$:s s.t. $\pi(j)>\pi(j+1)$, $k+1$ $j$:s s.t. $\pi(j)\geq j$, $k$ $j$:s s.t. $\pi(j)>j$.
-    $$E(n,k) = (n-k)E(n-1,k-1) + (k+1)E(n-1,k)$$
-    $$E(n,0) = E(n,n-1) = 1$$
-    $$E(n,k) = \sum_{j=0}^k(-1)^j\binom{n+1}{j}(k+1-j)^n$$
+\subsubsection{Eulerian numbers}
+Number of permutations $\pi \in S_n$ in which exactly $k$ elements are greater than the previous element. $k$ $j$:s s.t. $\pi(j)>\pi(j+1)$, $k+1$ $j$:s s.t. $\pi(j)\geq j$, $k$ $j$:s s.t. $\pi(j)>j$.
+$$E(n,k) = (n-k)E(n-1,k-1) + (k+1)E(n-1,k)$$
+$$E(n,0) = E(n,n-1) = 1$$
+$$E(n,k) = \sum_{j=0}^k(-1)^j\binom{n+1}{j}(k+1-j)^n$$
 
-  % \subsubsection{Stirling numbers of the first kind}
-    
+% \subsubsection{Stirling numbers of the first kind}
 
+% \subsubsection{Stirling numbers of the second kind}
+%   Partitions of $n$ distinct elements into exactly $k$ groups.
+%   $$S(n,k) = S(n-1,k-1) + k S(n-1,k)$$
+%   $$
+%   $$
 
-  % \subsubsection{Stirling numbers of the second kind}
-  %   Partitions of $n$ distinct elements into exactly $k$ groups.
-  %   $$S(n,k) = S(n-1,k-1) + k S(n-1,k)$$
-  %   $$
-  %   $$
-
-    % - Time Complexity: $ O(k\log n) $
+% - Time Complexity: $ O(k\log n) $
   % \begin{verbatim}
-  
+
   % \end{verbatim}
 
-  \subsubsection{Bell numbers}
-    Total number of partitions of $n$ distinct elements. $B(n) =$
-    $1, 1, 2, 5, 15, 52, 203, 877, 4140, 21147, \dots$. For $p$ prime,
-    \[ B(p^m+n)\equiv mB(n)+B(n+1) \pmod{p} \]
+\subsubsection{Bell numbers}
+Total number of partitions of $n$ distinct elements. $B(n) =$
+$1, 1, 2, 5, 15, 52, 203, 877, 4140, 21147, \dots$. For $p$ prime,
+\[ B(p^m+n)\equiv mB(n)+B(n+1) \pmod{p} \]
 
-  \subsubsection{Bernoulli numbers}
-  $\Scale[.95]{\sum\limits_{j=0}^m {m+1 \choose j} B_j = 0$.
-  \quad $B_0=1$, $B_1=-\frac{1}{2}$. $B_n=0$, for all odd $n \ne 1}$.
+\subsubsection{Bernoulli numbers}
+$\Scale[.95]{\sum\limits_{j=0}^m {m+1 \choose j} B_j = 0$.
+\quad $B_0=1$, $B_1=-\frac{1}{2}$. $B_n=0$, for all odd $n \ne 1}$.
 
-  \subsubsection{Catalan numbers}
-    \[ C_n=\frac{1}{n+1}\binom{2n}{n}= \binom{2n}{n}-\binom{2n}{n+1} = \frac{(2n)!}{(n+1)!n!} \]
-    \[ C_0=1,\ C_{n+1} = \frac{2(2n+1)}{n+2}C_n,\ C_{n+1}=\sum C_iC_{n-i} \]
-    \begin{itemize}[noitemsep]
-      \item ${C_n = 1, 1, 2, 5, 14, 42, 132, 429, 1430, 4862, 16796, 58786, \dots}$
-      \item sub-diagonal monotone paths in an $n\times n$ grid.
-      \item strings with $n$ pairs of parenthesis, correctly nested.
-      \item binary trees with with $n+1$ leaves (0 or 2 children).
-      \item ordered trees with $n+1$ vertices.
-      \item ways a convex polygon with $n+2$ sides can be cut into triangles by connecting vertices with straight lines.
-      \item permutations of $[n]$ with no 3-term increasing subseq.
-      \item Find the count of balanced parentheses sequences consisting of $n + k$ pairs of parentheses where the first $k$ symbols are open brackets.
-   $$C_n^{(k)} = \frac{k + 1}{n + k + 1} \binom{2n + k}{n}$$
-      \item Recursive formula of Catalan Numbers:
-    $$ C_{n}^{(k)} = \frac{(2n + k - 1) \cdot (2n + k)}{n \cdot (n + k + 1)} C_{n - 1}^{(k)} $$
-    \end{itemize}
+\subsubsection{Catalan numbers}
+\[ C_n=\frac{1}{n+1}\binom{2n}{n}= \binom{2n}{n}-\binom{2n}{n+1} = \frac{(2n)!}{(n+1)!n!} \]
+\[ C_0=1,\ C_{n+1} = \frac{2(2n+1)}{n+2}C_n,\ C_{n+1}=\sum C_iC_{n-i} \]
+\begin{itemize}[noitemsep]
+\item ${C_n = 1, 1, 2, 5, 14, 42, 132, 429, 1430, 4862, 16796, 58786, \dots}$
+\item sub-diagonal monotone paths in an $n\times n$ grid.
+\item strings with $n$ pairs of parenthesis, correctly nested.
+\item binary trees with with $n+1$ leaves (0 or 2 children).
+\item ordered trees with $n+1$ vertices.
+\item ways a convex polygon with $n+2$ sides can be cut into triangles by connecting vertices with straight lines.
+\item permutations of $[n]$ with no 3-term increasing subseq.
+\item Find the count of balanced parentheses sequences consisting of $n + k$ pairs of parentheses where the first $k$ symbols are open brackets.
+  $$C_n^{(k)} = \frac{k + 1}{n + k + 1} \binom{2n + k}{n}$$
+\item Recursive formula of Catalan Numbers:
+  $$ C_{n}^{(k)} = \frac{(2n + k - 1) \cdot (2n + k)}{n \cdot (n + k + 1)} C_{n - 1}^{(k)} $$
+\end{itemize}
 
+\subsubsection{Lucas Number}
 
-
-    \subsubsection{Lucas Number}
-
-    Number of edge cover of a cycle graph $ C_n $ is $ L_n $
+Number of edge cover of a cycle graph $ C_n $ is $ L_n $
 
 $$ L(n) = L(n-1) + L(n-2); L(0)=2, L(1)=1 $$
-    
+
 \subsection{Ballot Theorem}
 
 Suppose that in an election, candidate A receives
@@ -496,22 +490,22 @@ $x$ is losing iff $G(x) = 0$.
 
 \vspace{-1mm}
 \begin{itemize}
-  \item
-    \emph{Player chooses a game and makes a move in it}
-    Grundy number of a position is xor of grundy numbers of positions in summed games.
-    \vspace{-1mm}
-  \item
-    \emph{Player chooses a non-empty subset of games (possibly, all) and makes moves in all of them}
-    A position is losing iff each game is in a losing position.
+\item
+  \emph{Player chooses a game and makes a move in it}
+  Grundy number of a position is xor of grundy numbers of positions in summed games.
   \vspace{-1mm}
-  \item
-    \emph{Player chooses a proper subset of games (not empty and not all),
-        and makes moves in all chosen ones.}
-    A position is losing iff grundy numbers of all games are equal.
-    \vspace{-1mm}
-  \item
-    \emph{Player must move in all games, and loses if can't move in some game}
-    A position is losing if any of the games is in a losing position.
+\item
+  \emph{Player chooses a non-empty subset of games (possibly, all) and makes moves in all of them}
+  A position is losing iff each game is in a losing position.
+  \vspace{-1mm}
+\item
+  \emph{Player chooses a proper subset of games (not empty and not all),
+  and makes moves in all chosen ones.}
+  A position is losing iff grundy numbers of all games are equal.
+  \vspace{-1mm}
+\item
+  \emph{Player must move in all games, and loses if can't move in some game}
+  A position is losing if any of the games is in a losing position.
 \end{itemize}
 
 \subsubsection{Mis\`{e}re Nim}
@@ -531,12 +525,12 @@ To maximize the sum of adjacent differences of a permuation, it is necessary and
 \subsection{String} \\
 
 \begin{itemize}
-  \item If the sum of length of some strings is \( N \), there can be at most \( \sqrt{N} \) distinct length. \\
-  \item A Text can have at most \( O(N \times \sqrt{N}) \) distinct substrings that match with given patterns where the sum of the length of the given patterns is \( N \). \\
-  \item Period =  n \% (n - pi.back() == 0)? n - pi.back(): n \\
-  \item The first \( (period) \) cyclic rotations of a string are distinct. Further cyclic rotations repeat the previous strings. \\
-  \item \( S \) is a palindrome if and only if it's period is a palindrome. \\
-  \item If $S$ and $T$ are palindromes, then the periods of $S$ & $T$ are same if and only if $S + T$ is a palindrome.
+\item If the sum of length of some strings is \( N \), there can be at most \( \sqrt{N} \) distinct length. \\
+\item A Text can have at most \( O(N \times \sqrt{N}) \) distinct substrings that match with given patterns where the sum of the length of the given patterns is \( N \). \\
+\item Period =  n \% (n - pi.back() == 0)? n - pi.back(): n \\
+\item The first \( (period) \) cyclic rotations of a string are distinct. Further cyclic rotations repeat the previous strings. \\
+\item \( S \) is a palindrome if and only if it's period is a palindrome. \\
+\item If $S$ and $T$ are palindromes, then the periods of $S$ & $T$ are same if and only if $S + T$ is a palindrome.
 \end{itemize}
 
 \subsection{Bit} \\
@@ -553,17 +547,17 @@ To maximize the sum of adjacent differences of a permuation, it is necessary and
 \subsubsection{Anti-Clockwise Rotation}\\
 $$
 \begin{bmatrix}
-    \cos \theta & \sin \theta \\
-    -\sin \theta & \cos \theta
+\cos \theta & \sin \theta \\
+-\sin \theta & \cos \theta
 \end{bmatrix}
 \begin{bmatrix}
-    x \\
-    y
+x \\
+y
 \end{bmatrix}
 =
 \begin{bmatrix}
-    x' \\
-    y'
+x' \\
+y'
 \end{bmatrix}
 $$
 
@@ -571,11 +565,10 @@ $$
 
 $$
 \begin{bmatrix}
-    \cos \theta & -\sin \theta \\
-    \sin \theta & \cos \theta
+\cos \theta & -\sin \theta \\
+\sin \theta & \cos \theta
 \end{bmatrix}
 $$
-
 
 \subsection{Common Formulas}
 
@@ -627,15 +620,15 @@ $$
 
 \subsubsection{Arithmetic Progression}
 \begin{itemize}
-    \item \textbf{Sequence:} $a, a+d, a+2d, \dots, a+(n-1)d$
-    \item \textbf{Sum of first $n$ terms:} $S_n = \frac{n}{2} [2a + (n-1)d]$
+\item \textbf{Sequence:} $a, a+d, a+2d, \dots, a+(n-1)d$
+\item \textbf{Sum of first $n$ terms:} $S_n = \frac{n}{2} [2a + (n-1)d]$
 \end{itemize}
 
 \subsubsection{Geometric Progression}
 \begin{itemize}
-    \item \textbf{Sequence:} $a, ar, ar^2, \dots, ar^{n-1}$
-    \item \textbf{Sum (for $r > 1$):} $S_n = \frac{a(r^n - 1)}{r-1}$
-    \item \textbf{Sum (for $r < 1$):} $S_n = \frac{a(1 - r^n)}{1-r}$
+\item \textbf{Sequence:} $a, ar, ar^2, \dots, ar^{n-1}$
+\item \textbf{Sum (for $r > 1$):} $S_n = \frac{a(r^n - 1)}{r-1}$
+\item \textbf{Sum (for $r < 1$):} $S_n = \frac{a(1 - r^n)}{1-r}$
 \end{itemize}
 
 \end{document}
