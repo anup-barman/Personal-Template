@@ -96,6 +96,27 @@ where:
   \item \( \binom{n}{m} \equiv \lfloor \frac{n}{p} \rfloor (\mod p) \)
 \end{itemize}
 
+\subsection{Wilson's Theorem}
+
+Wilson's Theorem states that an integer $p > 1$ is a prime number if and only if:
+$$(p - 1)! \equiv -1 \pmod{p}$$
+
+Equivalently, in positive modulo representation:
+$$(p - 1)! \equiv p - 1 \pmod{p}$$
+
+\textbf{Competitive Programming Applications:}
+While not practical for general primality testing due to the $O(p)$ factorial computation, Wilson's Theorem is extremely useful for calculating factorials close to $p$ modulo $p$. 
+
+If you need to find $(p-k)! \pmod{p}$ for a small $k$, you can use Wilson's Theorem to compute it in $O(k \log p)$ time (using modular inverse) instead of $O(p)$ time.
+
+\textbf{Useful Corollaries:}
+By expanding $(p-1)! = (p-1)(p-2)!$ and dividing out terms, we get:
+\begin{itemize}
+  \item $(p - 1)! \equiv -1 \pmod{p}$
+  \item $(p - 2)! \equiv 1 \pmod{p}$
+  \item $(p - k)! \equiv \frac{(-1)^k}{(k-1)!} \pmod{p}$ \quad (for $1 \le k \le p$)
+\end{itemize}
+
 \subsection{Fibonacci Number}
 
 % \begin{equation}
