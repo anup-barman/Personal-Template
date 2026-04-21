@@ -1,20 +1,20 @@
-const int MAXN = 2e5 + 10;
-const int K = 26;
+const int MX = 2e5 + 10;
+const int LOG = 25;
+int arr[MX], st[MX][LOG];
 
-int n, arr[MX], spt[25][MX];
-int log2Floor(int i) {
-  return 31 - __builtin_clz(i);
-}
-void build() {
-  int k = log2Floor(n);
-  copy(arr, arr + n, spt[0]);
-  for (int i = 1; i <= k; ++i) {
-    for (int j = 0; j + (1 << i) <= n; j++) {
-      spt[i][j] = min(spt[i - 1][j], spt[i - 1][j + (1 << (i - 1))]);
+void build(int n) {
+  for (int i = 0; i < n; ++i) {
+    st[i][0] = arr[i];
+  }
+
+  for (int j = 1; j < LOG; ++j) {
+    for (int i = 0; i + (1 << j) <= n; ++i) {
+      st[i][j] = min(st[i][j - 1], st[i + (1 << (j - 1))][j - 1]);
     }
   }
 }
 int query(int l, int r) {
-  int i = log2Floor(r - l + 1);
-  return min(spt[i][l], spt[i][r - (1 << i) + 1]);
+  int len = r - l + 1;
+  int k = 31 - __builtin_popcount(len);
+  return min(st[l][k], st[r - (1 << k) + 1][k]);
 }
