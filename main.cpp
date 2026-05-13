@@ -20,6 +20,7 @@ void sieve() {
     if (spf[i] == i) {
       for (int j = i * i; j < MAX_H1; j += i) {
         if (spf[j] == j) spf[j] = i;
+        
       }
     }
   }
