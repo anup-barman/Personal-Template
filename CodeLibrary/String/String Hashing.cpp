@@ -52,3 +52,19 @@ struct RangeHash {
     return one << 31 | two;
   }
 };
+// Returns the length of the longest common
+// prefix of S[l1...r1] and S[l2...r2]
+ll getLCP(RangeHash& rh, int l1, int r1, int l2, int r2) {
+  int len1 = r1 - l1 + 1, len2 = r2 - l2 + 1;
+  int low = 1, high = min(len1, len2), ans = 0;
+  while (low <= high) {
+    int mid = (low + high) / 2;
+    if (rh.get(l1, l1 + mid - 1) == rh.get(l2, l2 + mid - 1)) {
+      ans = mid;
+      low = mid + 1;
+    } else {
+      high = mid - 1;
+    }
+  }
+  return ans;
+}

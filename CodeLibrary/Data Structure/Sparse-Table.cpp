@@ -7,7 +7,7 @@ void build(int n) {
     st[i][0] = arr[i];
   }
   for (int j = 1; j < LOG; ++j) {
-    for (int i = 0; i + (1 << j) <= n; ++i) {
+    for (int i = 0; i + (1LL << j) <= n; ++i) {
       st[i][j] = min(st[i][j - 1], st[i + (1 << (j - 1))][j - 1]);
     }
   }
